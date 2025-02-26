@@ -26,9 +26,11 @@ int main() {
         tabuleiro[inicio_vertical_x + i][inicio_vertical_y] = navio_vertical[i];
     }
 
-    // Exibição do tabuleiro com os navios posicionados
+    // Exibição do tabuleiro com rótulos nas linhas e colunas
     printf("Tabuleiro com navios posicionados:\n");
+    printf("   A B C D E\n"); // Rótulos das colunas (A a E)
     for (int i = 0; i < 5; i++) {
+        printf("%d  ", i + 1); // Rótulos das linhas (1 a 5)
         for (int j = 0; j < 5; j++) {
             printf("%d ", tabuleiro[i][j]);
         }
@@ -38,12 +40,12 @@ int main() {
     // Exibição das coordenadas de cada parte dos navios
     printf("\nCoordenadas do navio horizontal:\n");
     for (int i = 0; i < 3; i++) {
-        printf("(%d, %d)\n", inicio_horizontal_x, inicio_horizontal_y + i);
+        printf("(%d, %c)\n", inicio_horizontal_x + 1, 'A' + (inicio_horizontal_y + i));
     }
 
     printf("\nCoordenadas do navio vertical:\n");
     for (int i = 0; i < 3; i++) {
-        printf("(%d, %d)\n", inicio_vertical_x + i, inicio_vertical_y);
+        printf("(%d, %c)\n", inicio_vertical_x + 1 + i, 'A' + inicio_vertical_y);
     }
 
     return 0;
