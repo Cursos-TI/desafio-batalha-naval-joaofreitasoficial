@@ -5,36 +5,46 @@
 // Siga os comentários para implementar cada parte do desafio.
 
 int main() {
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+    // Declaração do tabuleiro 5x5
+    int tabuleiro[5][5] = {0}; // Inicializa todas as posições com 0 (água)
 
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
+    // Posicionamento do navio horizontal (3 posições)
+    int navio_horizontal[3] = {3, 3, 3}; // Navio horizontal representado pelo valor 1
+    int inicio_horizontal_x = 1; // Coordenada inicial X do navio horizontal
+    int inicio_horizontal_y = 2; // Coordenada inicial Y do navio horizontal
 
-    // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[inicio_horizontal_x][inicio_horizontal_y + i] = navio_horizontal[i];
+    }
 
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
-    
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
+    // Posicionamento do navio vertical (3 posições)
+    int navio_vertical[3] = {3, 3, 3}; // Navio vertical representado pelo valor 2
+    int inicio_vertical_x = 2; // Coordenada inicial X do navio vertical
+    int inicio_vertical_y = 1; // Coordenada inicial Y do navio vertical
 
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[inicio_vertical_x + i][inicio_vertical_y] = navio_vertical[i];
+    }
+
+    // Exibição do tabuleiro com os navios posicionados
+    printf("Tabuleiro com navios posicionados:\n");
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            printf("%d ", tabuleiro[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Exibição das coordenadas de cada parte dos navios
+    printf("\nCoordenadas do navio horizontal:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("(%d, %d)\n", inicio_horizontal_x, inicio_horizontal_y + i);
+    }
+
+    printf("\nCoordenadas do navio vertical:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("(%d, %d)\n", inicio_vertical_x + i, inicio_vertical_y);
+    }
 
     return 0;
 }
